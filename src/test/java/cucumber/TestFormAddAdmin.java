@@ -127,7 +127,7 @@ public class TestFormAddAdmin {
         addAdmin.inputSearchKeyword("Violet Evergarden");
         Hooks.delay(1);
         addAdmin.clickSearchBtn();
-        Assert.assertTrue(addAdmin.getFullNameInTableTxt().contains("Violet Evergarden"));
+        Assert.assertEquals(addAdmin.getFullNameTableTxt(),"Violet Evergarden");
         extentTest.log(LogStatus.PASS,"Data berhasil disimpan");
     }
 

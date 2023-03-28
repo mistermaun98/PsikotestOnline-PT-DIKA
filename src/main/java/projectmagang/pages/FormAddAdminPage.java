@@ -50,8 +50,9 @@ public class FormAddAdminPage {
     WebElement menuAdmin;
     @FindBy(xpath = "//span[normalize-space()='Pemberitahuan!']")
     WebElement passwdErrorNotification;
-    @FindBy(xpath = "(//td[@id='tl_user_management--53683-cell-0-3'])[1]")
-    WebElement nameColsValAfterSearch;
+    @FindBy(xpath = "//td[normalize-space()='Violet Evergarden']")
+    WebElement confirmTblContent;
+
 
     public void refreshPage() {
         driver.get(Constants.URL);
@@ -130,7 +131,7 @@ public class FormAddAdminPage {
         return dataNotCompleteTxt.getText();
     }
 
-    public String getFullNameInTableTxt() {
-        return nameColsValAfterSearch.getText();
+    public String getFullNameTableTxt() {
+        return confirmTblContent.getText();
     }
 }
