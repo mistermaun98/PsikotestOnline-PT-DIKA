@@ -38,6 +38,8 @@ public class FormAddAdminPage {
     WebElement confirmSave;
     @FindBy(xpath = "//input[@id='tl_user_management--53685_text']")
     WebElement searchBar;
+    @FindBy(xpath = "//span[normalize-space()='Search']")
+    WebElement searchBtn;
     @FindBy(xpath = "//span[contains(@class,'ui-button-icon-primary ui-icon ui-icon-closethick')]")
     WebElement closeWarning;
     @FindBy(xpath = "//span[normalize-space()='OK']")
@@ -48,6 +50,8 @@ public class FormAddAdminPage {
     WebElement menuAdmin;
     @FindBy(xpath = "//span[normalize-space()='Pemberitahuan!']")
     WebElement passwdErrorNotification;
+    @FindBy(xpath = "(//td[@id='tl_user_management--53683-cell-0-3'])[1]")
+    WebElement nameColsValAfterSearch;
 
     public void refreshPage() {
         driver.get(Constants.URL);
@@ -57,6 +61,16 @@ public class FormAddAdminPage {
     }
     public void confirmSave() {
         confirmSave.click();
+    }
+
+    public void clickSearchBar () {
+        searchBar.click();
+    }
+    public void inputSearchKeyword (String searchbar) {
+        this.searchBar.sendKeys(searchbar);
+    }
+    public void clickSearchBtn() {
+        searchBtn.click();
     }
     public void accessMenuUserMgMt() {
         menuUserManagement.click();
@@ -114,5 +128,9 @@ public class FormAddAdminPage {
     }
     public String getWarningLengkapiData() {
         return dataNotCompleteTxt.getText();
+    }
+
+    public String getFullNameInTableTxt() {
+        return nameColsValAfterSearch.getText();
     }
 }

@@ -55,6 +55,7 @@ Feature: Form Add Admin Test
     And Admin input field Telephone "<telfon>"
     And Admin input field Username "<uname>"
     And Admin input field Password "<pass>"
+    And Admin klik tombol Save
     And Admin konfirmasi simpan data
     Then Muncul notifikasi Pemberitahuan Password error
 
@@ -73,3 +74,14 @@ Feature: Form Add Admin Test
     #test28 = TCC.PO.28
 
   #TCC.PO.029
+  Scenario: Cek input form dengan data valid
+    Given Admin ready to input data Admin
+    When Admin input field Full Name
+    And Admin input field Privileges
+    And Admin input field Supervisor
+    And Admin input field Telephone
+    And Admin input field Username
+    And Admin input field Password
+    And Admin klik tombol Save
+    And Admin konfirmasi simpan data
+    Then Data berhasil disimpan

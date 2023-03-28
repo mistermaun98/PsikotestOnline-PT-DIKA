@@ -28,7 +28,8 @@ public enum TestScenarios {
     T25("Cek input form dengan password yang memiliki kriteria diatas 16 digit"),
     T26("Cek input form dengan password yang memiliki kriteria angka saja"),
     T27("Cek input form dengan password yang memiliki kriteria huruf saja"),
-    T28("Cek input form dengan password yang memiliki kriteria simbol saja");
+    T28("Cek input form dengan password yang memiliki kriteria simbol saja"),
+    T29("Cek input form dengan data valid");
     private String testCaseName;
 
     TestScenarios(String value){

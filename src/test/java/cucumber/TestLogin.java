@@ -80,9 +80,10 @@ public class TestLogin {
 
     @Then("Muncul warning Username atau password tidak ditemukan atau akun anda tidak aktif")
     public void muncul_warning_username_atau_password_tidak_ditemukan_atau_akun_anda_tidak_aktif() {
-        Hooks.delay(2);
+        Hooks.delay(3);
         Assert.assertEquals(loginPage.getLoginErrorTxt(),"Username atau password tidak ditemukan atau akun anda tidak aktif");
         extentTest.log(LogStatus.PASS,"Muncul Warning Username atau password tidak ditemukan atau akun anda tidak aktif");
+        Hooks.delay(3);
         loginPage.dismissLoginWarningMsg();
         Hooks.delay(1);
         loginPage.clearLoginForm();

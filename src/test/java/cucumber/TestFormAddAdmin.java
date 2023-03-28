@@ -28,7 +28,6 @@ public class TestFormAddAdmin {
     @Given("Admin ready to input data Admin")
     public void admin_ready_to_input_data_admin() {
         addAdmin.refreshPage();
-        Hooks.delay(1);
         addAdmin.dismissLoginMsg();
         Hooks.delay(1);
         addAdmin.accessMenuUserMgMt();
@@ -40,20 +39,17 @@ public class TestFormAddAdmin {
 
 
     @When("Admin input field Privilege")
-    public void admin_input_field_privilege() {
-        Hooks.delay(1);
+    public void admin_input_field_privilege() {;
         addAdmin.choosePrivilege("Admin");
         extentTest.log(LogStatus.PASS,"Admin input field privileges");
     }
     @When("Admin input field Full Name")
     public void admin_input_field_full_name() {
-        Hooks.delay(1);
-        addAdmin.inputFullName("Joss Gandoss");
+        addAdmin.inputFullName("Violet Evergarden");
         extentTest.log(LogStatus.PASS,"Admin input field Full Name");
     }
     @When("Admin input field Privileges")
     public void admin_input_field_privileges() {
-        Hooks.delay(1);
         addAdmin.choosePrivilege("Admin");
         extentTest.log(LogStatus.PASS,"Admin input field Privileges");
     }
@@ -62,7 +58,7 @@ public class TestFormAddAdmin {
     @And("Admin input field Supervisor")
     public void admin_input_field_supervisor() {
         Hooks.delay(1);
-        addAdmin.chooseSupervisor("ARIE");
+        addAdmin.chooseSupervisor("SUPER");
         extentTest.log(LogStatus.PASS,"Admin input field Supervisor");
     }
     @And("Admin input field Telephone")
@@ -74,18 +70,17 @@ public class TestFormAddAdmin {
     @And("Admin input field Username")
     public void admin_input_field_username() {
         Hooks.delay(1);
-        addAdmin.inputUsername("joss");
+        addAdmin.inputUsername("violet01");
         extentTest.log(LogStatus.PASS,"Admin input field Username");
     }
     @And("Admin input field Password")
     public void admin_input_field_password() {
         Hooks.delay(1);
-        addAdmin.inputPassword("gandoss123");
+        addAdmin.inputPassword("evergarden01");
         extentTest.log(LogStatus.PASS,"Admin input field Password");
     }
     @And("Admin klik tombol Save")
     public void admin_klik_tombol_save() {
-        Hooks.delay(1);
         addAdmin.saveAdmin();
         extentTest.log(LogStatus.PASS,"Admin klik tombol Save");
     }
@@ -122,52 +117,60 @@ public class TestFormAddAdmin {
         Hooks.delay(1);
         Assert.assertEquals(addAdmin.getWarningLengkapiData(),"Mohon Lengkapi Data");
         extentTest.log(LogStatus.PASS,"Muncul tampilan warning Mohon Lengkapi Data");
-        Hooks.delay(1);
         addAdmin.dismissWarningLengkapiData();
+    }
+    @Then("Data berhasil disimpan")
+    public void data_berhasil_disimpan() {
+        Hooks.delay(1);
+        addAdmin.clickSearchBar();
+        Hooks.delay(1);
+        addAdmin.inputSearchKeyword("Violet Evergarden");
+        Hooks.delay(1);
+        addAdmin.clickSearchBtn();
+        Assert.assertTrue(addAdmin.getFullNameInTableTxt().contains("Violet Evergarden"));
+        extentTest.log(LogStatus.PASS,"Data berhasil disimpan");
     }
 
 
     //Test for TCC.PO.024 - TCC.PO.028
     @When("Admin input field Full Name {string}")
     public void admin_input_field_full_name_something(String name) {
-        Hooks.delay(1);
+
         addAdmin.inputFullName(name);
         extentTest.log(LogStatus.PASS,"Admin input Full Name "+name);
     }
     @And("Admin input field Privileges {string}")
     public void admin_input_field_privileges_something(String privilege) {
-        Hooks.delay(1);
+
         addAdmin.choosePrivilege(privilege);
         extentTest.log(LogStatus.PASS,"Admin input Privilege "+privilege);
     }
     @And("Admin input field Supervisor {string}")
     public void admin_input_field_supervisor_something(String supervisor) {
-        Hooks.delay(1);
+
         addAdmin.chooseSupervisor(supervisor);
         extentTest.log(LogStatus.PASS,"Admin input Supervisor "+supervisor);
     }
     @And("Admin input field Telephone {string}")
     public void admin_input_field_telephone_something(String telfon) {
-        Hooks.delay(1);
+
         addAdmin.inputTelephone(telfon);
         extentTest.log(LogStatus.PASS,"Admin input Telephone "+telfon);
     }
     @And("Admin input field Username {string}")
     public void admin_input_field_username_something(String uname) {
-        Hooks.delay(1);
+
         addAdmin.inputUsername(uname);
         extentTest.log(LogStatus.PASS,"Admin input username "+uname);
     }
     @And("Admin input field Password {string}")
     public void admin_input_field_password_something(String pass) {
-        Hooks.delay(1);
+
         addAdmin.inputPassword(pass);
         extentTest.log(LogStatus.PASS,"Admin input Password "+pass);
     }
     @And("Admin konfirmasi simpan data")
     public void admin_konfirmasi_simpan_data() {
-        Hooks.delay(1);
-        addAdmin.saveAdmin();
         Hooks.delay(1);
         addAdmin.confirmSave();
         extentTest.log(LogStatus.PASS,"Admin konfirmasi simpan data");
