@@ -34,6 +34,10 @@ public class EditAdminPage {
     WebElement listSupervisor;
     @FindBy(xpath = "//input[@id='tl_agent_editable-21-53705_text']")
     WebElement telephone;
+    @FindBy(xpath = "//input[@id='tl_agent_editable-21-53707_text']")
+    WebElement useractive;
+    @FindBy(xpath = "//input[@id='tl_agent_editable-21-53709_text']")
+    WebElement fieldUsername;
 
 
     @FindBy(xpath = "//button[@id='53712_query']//span[contains(@class,'ui-button-text')][normalize-space()='Update']")
@@ -44,6 +48,8 @@ public class EditAdminPage {
     WebElement dataNotCompleteTxt;
 
 
+    @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-2']")
+    WebElement tblUserName;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-3']")
     WebElement tblFullName;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-4']")
@@ -52,6 +58,14 @@ public class EditAdminPage {
     WebElement tblSupervisor;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-6']")
     WebElement tblTelephone;
+    @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-8']")
+    WebElement tblUserActive;
+
+
+    @FindBy(xpath = "//span[normalize-space()='SUPER']")
+    WebElement btnLogout;
+    @FindBy(xpath = "//span[normalize-space()='YA']")
+    WebElement confirmLogoutBtn;
 
 
     public void chooseSearchbar() {
@@ -77,12 +91,18 @@ public class EditAdminPage {
     public void resetPrivilege() {
         listPrivileges.sendKeys(Keys.ARROW_UP,Keys.ENTER);
     }
-    public void resetSupervisor() {
+    public void clearSupervisor() {
         Select purgeSPV = new Select(listSupervisor);
         purgeSPV.selectByVisibleText("");
     }
     public void resetTelephone() {
         telephone.clear();
+    }
+    public void clearUserActive() {
+        useractive.clear();
+    }
+    public void clearUsername() { //tcc 35
+        fieldUsername.clear();
     }
 
 
@@ -95,6 +115,11 @@ public class EditAdminPage {
     public String getWarningLengkapiData() {
         return dataNotCompleteTxt.getText();
     }
+
+
+    public String confirmUserName() {
+        return tblUserName.getText();
+    }
     public String confirmFullName() {
         return tblFullName.getText();
     }
@@ -102,9 +127,20 @@ public class EditAdminPage {
         return tblPrivileges.getText();
     }
     public String confirmSupervisor() {
-        return tblFullName.getText();
+        return tblSupervisor.getText();
     }
     public String confirmTelephone() {
-        return tblPrivileges.getText();
+        return tblTelephone.getText();
+    }
+    public String confirmUserActive() {
+        return tblUserActive.getText();
+    }
+
+
+    public void clickLogoutBtn() {
+        btnLogout.click();
+    }
+    public void confirmLogout() {
+        confirmLogoutBtn.click();
     }
 }
