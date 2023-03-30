@@ -29,7 +29,11 @@ public enum TestScenarios {
     T26("Cek input form dengan password yang memiliki kriteria angka saja"),
     T27("Cek input form dengan password yang memiliki kriteria huruf saja"),
     T28("Cek input form dengan password yang memiliki kriteria simbol saja"),
-    T29("Cek input form dengan data valid");
+    T29("Cek input form dengan data valid"),
+    T30("Check edit data admin dengan field Full Name kosong"),
+    T31("Check edit data admin dengan field Privileges kosong"),
+    T32("Check edit data admin dengan field Supervisor kosong"),
+    T33("Check edit data admin dengan field Telephone kosong");
     private String testCaseName;
 
     TestScenarios(String value){
