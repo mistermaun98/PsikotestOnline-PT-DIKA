@@ -55,3 +55,29 @@ Feature: Form Edit Admin Test
     And Admin konfirmasi update data
     Then Username direset menjadi "super"
 
+  #TCC.PO.036
+  Scenario: Check edit data admin dengan field Full Name valid
+    When Admin search data admin "uname25" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field Full Name dengan data valid
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Full Name berhasil diedit
+
+  #TCC.PO.037
+  Scenario: Check edit data admin dengan field Privilege valid
+    When Admin search data admin "uname25" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field Privilege dengan data valid
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Privilege berhasil diedit
+
+  #TCC.PO.038
+  Scenario: Check edit data admin dengan field Supervisor valid
+    When Admin search data admin "uname27" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field Supervisor dengan data valid
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Supervisor berhasil diedit

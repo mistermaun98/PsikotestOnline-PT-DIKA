@@ -98,6 +98,24 @@ public class TestEditAdmin {
         Hooks.delay(1);
         edit.clearUsername();
     }
+    @And("Admin edit field Full Name dengan data valid")
+    public void admin_edit_field_fullname_dengan_data_valid() {
+        Hooks.delay(1);
+        edit.clearFullName();
+        Hooks.delay(1);
+        edit.inputFullName("IJN Atago");
+    }
+    @And("Admin edit field Privilege dengan data valid")
+    public void admin_edit_privilege_dengan_data_valid() {
+        Hooks.delay(1);
+
+        edit.inputPrivilege("Admin");
+    }
+    @And("Admin edit field Supervisor dengan data valid")
+    public void admin_edit_supervisor_dengan_data_valid() {
+        Hooks.delay(1);
+        edit.inputSupervisor("ARIE");
+    }
 
 
     @Then("Muncul tampilan warning Data Full Name Tidak Lengkap")
@@ -119,6 +137,21 @@ public class TestEditAdmin {
     public void muncul_tampilan_warning_data_telephone_tidak_lengkap() {
         Hooks.delay(1);
         Assert.assertEquals(edit.confirmTelephone(),"2468101214");
+    }
+    @Then("Full Name berhasil diedit")
+    public void full_name_berhasil_diedit() {
+        Hooks.delay(1);
+        Assert.assertEquals(edit.confirmFullName(),"IJN Atago");
+    }
+    @Then("Privilege berhasil diedit")
+    public void privilege_berhasil_diedit() {
+        Hooks.delay(1);
+        Assert.assertEquals(edit.confirmprivilege(),"Admin");
+    }
+    @Then("Supervisor berhasil diedit")
+    public void supervisor_berhasil_diedit() {
+        Hooks.delay(1);
+        Assert.assertEquals(edit.confirmSupervisor(),"ARIE");
     }
     @Then("Akun {string} tidak dapat login kedalam sistem")
     public void akun_yang_diedit_tidak_dapat_login(String username) {

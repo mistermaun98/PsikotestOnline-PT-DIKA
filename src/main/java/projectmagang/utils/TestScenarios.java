@@ -35,7 +35,10 @@ public enum TestScenarios {
     T32("Check edit data admin dengan field Supervisor kosong"),
     T33("Check edit data admin dengan field Telephone kosong"),
     T34("Check edit data admin dengan field User Active kosong"),
-    T35("Check edit data admin dengan field Username kosong");
+    T35("Check edit data admin dengan field Username kosong"),
+    T36("Check edit data admin dengan field Full Name valid"),
+    T37("Check edit data admin dengan field Privilege valid"),
+    T38("Check edit data admin dengan field Supervisor valid");
     private String testCaseName;
 
     TestScenarios(String value){

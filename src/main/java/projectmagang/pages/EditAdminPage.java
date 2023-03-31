@@ -54,6 +54,8 @@ public class EditAdminPage {
     WebElement tblFullName;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-4']")
     WebElement tblPrivileges;
+    @FindBy(xpath = "//td[normalize-space()='Admin']")
+    WebElement privilege2;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-5']")
     WebElement tblSupervisor;
     @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-6']")
@@ -85,11 +87,22 @@ public class EditAdminPage {
     }
 
 
+    public void inputFullName(String fullname) {
+        this.fullName.sendKeys(fullname);
+    }
     public void clearFullName() {
         fullName.clear();
     }
+    public void inputPrivilege(String priv) {
+        Select drpPrivileges = new Select(listPrivileges);
+        drpPrivileges.selectByValue(priv);
+    }
     public void resetPrivilege() {
         listPrivileges.sendKeys(Keys.ARROW_UP,Keys.ENTER);
+    }
+    public void inputSupervisor(String spv) {
+        Select drpSupervisor = new Select(listSupervisor);
+        drpSupervisor.selectByValue(spv);
     }
     public void clearSupervisor() {
         Select purgeSPV = new Select(listSupervisor);
@@ -125,6 +138,9 @@ public class EditAdminPage {
     }
     public String confirmPrivilege() {
         return tblPrivileges.getText();
+    }
+    public String confirmprivilege() {
+        return privilege2.getText();
     }
     public String confirmSupervisor() {
         return tblSupervisor.getText();
