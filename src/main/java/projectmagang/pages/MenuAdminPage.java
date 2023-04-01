@@ -38,4 +38,7 @@ public class MenuAdminPage {
     public void clearSearchBar() {
         searchBar.clear();
     }
+    public void manualChooseSearchBar () {
+        searchBar.click();
+    }
 }

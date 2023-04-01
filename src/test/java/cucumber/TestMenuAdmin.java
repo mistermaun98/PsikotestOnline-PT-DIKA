@@ -73,5 +73,8 @@ public class TestMenuAdmin {
         Hooks.delay(1);
         Assert.assertEquals(menuadmin.getKeyword(),"Copy keyword ini yaa");
         extentTest.log(LogStatus.PASS,"Admin dapat melihat keyword yang di copy-paste");
+        menuadmin.manualChooseSearchBar();
+        Hooks.delay(1);
+        menuadmin.clearSearchBar();
     }
 }

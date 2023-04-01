@@ -34,7 +34,7 @@ public class FormAddAdminPage {
     @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")
     WebElement closeAddAdminForm;
 
-
+    //*[@id="tl_agent_editable-14-53699_text"]
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53699_text']")
     WebElement fieldFullName;
     @FindBy(xpath = "//select[@id='tl_agent_editable-14-53700_text']")
@@ -49,7 +49,7 @@ public class FormAddAdminPage {
     WebElement fieldPassword;
 
 
-    @FindBy(xpath = "//span[normalize-space()='Save']")
+    @FindBy(xpath = "//button[@id='53711_query']")
     WebElement btnSaveData;
     @FindBy(xpath = "//span[normalize-space()='Yes']")
     WebElement btnConfirmSave;

@@ -30,13 +30,6 @@ public class TestAddAdmin {
     public void backToAddAdminForm() {
         Hooks.delay(1);
         addAdmin.closeFormAddAdmin();
-        Hooks.delay(1);
-        addAdmin.clickMenuAdmin();
-    }
-    @Before(value = "@TCC25_Onwards")
-    public void backToAddAdminForm2() {
-        Hooks.delay(1);
-        addAdmin.clickMenuAdmin();
     }
 
 
@@ -46,6 +39,7 @@ public class TestAddAdmin {
         addAdmin.addDataAdmin();
         extentTest.log(LogStatus.PASS,"Admin berada di form Add Admin");
     }
+    //@Given("Admin ingin input data Admin")
 
 
 
@@ -136,9 +130,9 @@ public class TestAddAdmin {
     // TCC.PO.024 - TCC.PO.028
     @When("Admin input field Full Name {string}")
     public void admin_input_field_full_name_something(String fullname) {
-        Hooks.delay(1);
-        addAdmin.addDataAdmin();
-        Hooks.delay(1);
+//        Hooks.delay(1);
+//        addAdmin.addDataAdmin();
+        Hooks.delay(2);
         addAdmin.inputFullName(fullname);
     }
 
