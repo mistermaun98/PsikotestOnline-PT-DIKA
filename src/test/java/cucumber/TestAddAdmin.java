@@ -131,8 +131,13 @@ public class TestAddAdmin {
     }
     @Then("Data berhasil disimpan")
     public void data_berhasil_disimpan() {
-        System.out.println("Data Berhasil disimpan");
-        Hooks.quitBrowser();
+        Hooks.delay(1);
+        addAdmin.manualChooseSearchBar();
+        addAdmin.inputKeyword("USS Enterprise");
+        Hooks.delay(1);
+        addAdmin.searchKeyword();
+        Hooks.delay(2);
+        Assert.assertEquals(addAdmin.getTableFullNameTXT(),"USS Enterprise");
         extentTest.log(LogStatus.PASS,"Data Berhasil disimpan");
     }
 

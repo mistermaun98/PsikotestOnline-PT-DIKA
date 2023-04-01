@@ -29,12 +29,15 @@ public class FormAddAdminPage {
 
 //    @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")
 //    WebElement closeWarningLengkapiData;
+
+
     @FindBy(xpath = "//span[contains(@class,'ui-button-icon-primary ui-icon ui-icon-closethick')]")
     WebElement closeWarningLengkapiData;
     @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")
     WebElement closeAddAdminForm;
 
     //*[@id="tl_agent_editable-14-53699_text"]
+
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53699_text']")
     WebElement fieldFullName;
     @FindBy(xpath = "//select[@id='tl_agent_editable-14-53700_text']")
@@ -47,6 +50,10 @@ public class FormAddAdminPage {
     WebElement fieldUsername;
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53710_text']")
     WebElement fieldPassword;
+
+
+    @FindBy(xpath = "//td[@id='tl_user_management--53683-cell-0-3']")
+    WebElement tableFullName;
 
 
     @FindBy(xpath = "//button[@id='53711_query']")
@@ -131,6 +138,11 @@ public class FormAddAdminPage {
     }
 
 
+    public String getTableFullNameTXT() {
+        return tableFullName.getText();
+    }
+
+
 
     public void closeLengkapiDataWarning() {
         closeWarningLengkapiData.click();
@@ -145,7 +157,6 @@ public class FormAddAdminPage {
         return passwordWarningTXT.getText();
     }
     public boolean verifyPasswordWarningPresent() {
-        boolean isPresent = passwordWarningTXT.isDisplayed();
-        return isPresent;
+        return passwordWarningTXT.isDisplayed();
     }
 }
