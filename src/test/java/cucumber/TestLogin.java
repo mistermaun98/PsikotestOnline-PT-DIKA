@@ -2,6 +2,7 @@ package cucumber;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -91,10 +92,10 @@ public class TestLogin {
 
     @Then("Muncul pesan welcome to web psikotest")
     public void muncul_pesan_welcome() {
-        Hooks.delay(5);
+        Hooks.delay(3);
         Assert.assertEquals(loginPage.getTxtWelcome(),"Welcome to web psikotest");
         extentTest.log(LogStatus.PASS,"Muncul pesan welcome to web psikotest");
-        Hooks.delay(3);
+        Hooks.delay(1);
         loginPage.dissmissLoginMsg();
     }
 }

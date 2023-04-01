@@ -38,7 +38,7 @@ Feature: Form Edit Admin Test
 
   #TCC.PO.034
   Scenario: Check edit data admin dengan field User Active kosong
-    When Admin search data admin "uname27" dengan Search bar
+    When Admin search data admin "IJN Maya" dengan Search bar
     And Admin klik tombol action edit
     And Admin edit field User Active dengan data kosong
     And Admin klik tombol Update
@@ -48,7 +48,7 @@ Feature: Form Edit Admin Test
   #TCC.PO.035
   Scenario: Check edit data admin dengan field Username kosong
     Given Admin sedang di menu Admin
-    When Admin search data admin "test28" dengan Search bar
+    When Admin search data admin "HMS Belfast" dengan Search bar
     And Admin klik tombol action edit
     And Admin edit field Username dengan data kosong
     And Admin klik tombol Update
@@ -57,7 +57,7 @@ Feature: Form Edit Admin Test
 
   #TCC.PO.036
   Scenario: Check edit data admin dengan field Full Name valid
-    When Admin search data admin "uname25" dengan Search bar
+    When Admin search data admin "uname24" dengan Search bar
     And Admin klik tombol action edit
     And Admin edit field Full Name dengan data valid
     And Admin klik tombol Update
@@ -75,9 +75,38 @@ Feature: Form Edit Admin Test
 
   #TCC.PO.038
   Scenario: Check edit data admin dengan field Supervisor valid
-    When Admin search data admin "uname27" dengan Search bar
+    When Admin search data admin "IJN Maya" dengan Search bar
     And Admin klik tombol action edit
     And Admin edit field Supervisor dengan data valid
     And Admin klik tombol Update
     And Admin konfirmasi update data
     Then Supervisor berhasil diedit
+
+  #TCC.PO.039
+  Scenario: Check edit data admin dengan field Telephone valid
+    When Admin search data admin "HMS Belfast" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field Telephone dengan data valid
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Telephone berhasil diedit
+
+  #TCC.PO.040
+  Scenario: Check edit data admin dengan field User Active valid
+    When Admin search data admin "IJN Maya" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field User Active dengan value "ACTIVE"
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Akun "uname27" dapat login kedalam sistem
+
+  #TCC.PO.041
+  @TCC41_TestPrep
+  Scenario: Check edit data admin dengan field Username valid
+    Given Admin sedang di menu Admin
+    When Admin search data admin "IJN Atago" dengan Search bar
+    And Admin klik tombol action edit
+    And Admin edit field Username dengan value "BigSisterEnergy"
+    And Admin klik tombol Update
+    And Admin konfirmasi update data
+    Then Akun dapat login kedalam sistem dengan Username "BigSisterEnergy"

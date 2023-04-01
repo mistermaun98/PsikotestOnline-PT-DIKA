@@ -64,7 +64,8 @@ public class EditAdminPage {
     WebElement tblUserActive;
 
 
-    @FindBy(xpath = "//span[normalize-space()='SUPER']")
+    //@FindBy(xpath = "//span[normalize-space()='SUPER']")
+    @FindBy(xpath = "//button[@id='52706_query']//span[@class='ui-button-text']")
     WebElement btnLogout;
     @FindBy(xpath = "//span[normalize-space()='YA']")
     WebElement confirmLogoutBtn;
@@ -108,11 +109,20 @@ public class EditAdminPage {
         Select purgeSPV = new Select(listSupervisor);
         purgeSPV.selectByVisibleText("");
     }
+    public void inputTelephone(String telephone) {
+        this.telephone.sendKeys(telephone);
+    }
     public void resetTelephone() {
         telephone.clear();
     }
+    public void inputUserActive(String usractive) {
+        this.useractive.sendKeys(usractive);
+    }
     public void clearUserActive() {
         useractive.clear();
+    }
+    public void inputUsername(String username) {
+        this.fieldUsername.sendKeys(username);
     }
     public void clearUsername() { //tcc 35
         fieldUsername.clear();

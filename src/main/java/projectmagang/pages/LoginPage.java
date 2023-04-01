@@ -28,6 +28,9 @@ public class LoginPage {
     @FindBy(xpath = "/html/body/div[8]/div[2]/p")
     WebElement txtWelcome;
 
+    @FindBy(xpath = "//p[normalize-space()='Welcome to web psikotest']")
+    WebElement loginSuccessMsg;
+
     @FindBy(xpath = "//div[@id='nikita-form-dialog']")
     WebElement txtLoginError;
 
@@ -61,6 +64,9 @@ public class LoginPage {
 
     public void dissmissLoginMsg() {
         btnDismissLoginMsg.click();
+    }
+    public String getLoginSuccessMsg() {
+        return loginSuccessMsg.getText();
     }
 
 }
