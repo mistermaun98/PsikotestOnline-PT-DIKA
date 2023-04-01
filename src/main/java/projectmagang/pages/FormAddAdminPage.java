@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import projectmagang.drivers.DriverSingleton;
-import projectmagang.utils.Constants;
 
 public class FormAddAdminPage {
     private WebDriver driver;
@@ -16,122 +15,106 @@ public class FormAddAdminPage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//input[@id='tl_user_management--53685_text']")
+    WebElement searchbar;
+    @FindBy(xpath = "//span[normalize-space()='Search']")
+    WebElement searchBtn;
+
+
     @FindBy(xpath = "//span[normalize-space()='Add']")
     WebElement btnAddAdmin;
+
+
+    @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")
+    WebElement closeWarningLengkapiData;
+    @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")
+    WebElement closeAddAdminForm;
+
+
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53699_text']")
-    WebElement fullName;
+    WebElement fieldFullName;
     @FindBy(xpath = "//select[@id='tl_agent_editable-14-53700_text']")
     WebElement listPrivileges;
     @FindBy(xpath = "//select[@id='tl_agent_editable-14-53702_text']")
     WebElement listSupervisor;
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53705_text']")
-    WebElement telephone;
+    WebElement fieldTelephone;
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53709_text']")
-    WebElement username;
+    WebElement fieldUsername;
     @FindBy(xpath = "//input[@id='tl_agent_editable-14-53710_text']")
-    WebElement password;
+    WebElement fieldPassword;
+
+
     @FindBy(xpath = "//span[normalize-space()='Save']")
-    WebElement saveData;
-    @FindBy(xpath = "//p[normalize-space()='Mohon Lengkapi Data']")
-    WebElement dataNotCompleteTxt;
+    WebElement btnSaveData;
     @FindBy(xpath = "//span[normalize-space()='Yes']")
-    WebElement confirmSave;
-    @FindBy(xpath = "//input[@id='tl_user_management--53685_text']")
-    WebElement searchBar;
-    @FindBy(xpath = "//span[normalize-space()='Search']")
-    WebElement searchBtn;
-    @FindBy(xpath = "//span[contains(@class,'ui-button-icon-primary ui-icon ui-icon-closethick')]")
-    WebElement closeWarning;
-    @FindBy(xpath = "//span[normalize-space()='OK']")
-    WebElement btnDismissLoginMsg;
-    @FindBy(xpath = "//h3[normalize-space()='User Management']//span")
-    WebElement menuUserManagement;
-    @FindBy(xpath = "//span[normalize-space()='Admin']")
-    WebElement menuAdmin;
-    @FindBy(xpath = "//span[normalize-space()='Pemberitahuan!']")
-    WebElement passwdErrorNotification;
-    @FindBy(xpath = "//td[normalize-space()='Violet Evergarden']")
-    WebElement confirmTblContent;
+    WebElement btnConfirmSave;
 
 
-    public void refreshPage() {
-        driver.get(Constants.URL);
-    }
-    public void dismissLoginMsg() {
-        btnDismissLoginMsg.click();
-    }
-    public void confirmSave() {
-        confirmSave.click();
-    }
+    @FindBy(xpath = "//p[contains(text(),'Password harus berisi angka dan huruf manimal 8 ka')]")
+    WebElement passwordWarningTXT;
 
-    public void clickSearchBar () {
-        searchBar.click();
+
+    public void manualChooseSearchBar () {
+        searchbar.click();
     }
-    public void inputSearchKeyword (String searchbar) {
-        this.searchBar.sendKeys(searchbar);
+    public void inputKeyword (String searchbar) {
+        this.searchbar.sendKeys(searchbar);
     }
-    public void clickSearchBtn() {
+    public void searchKeyword() {
         searchBtn.click();
     }
-    public void accessMenuUserMgMt() {
-        menuUserManagement.click();
-    }
-    public void accessMenuAdmin() {
-        menuAdmin.click();
-    }
-    public void clickBtnAddAdmin() {
-        btnAddAdmin.click();
-    }
-    public void dismissWarningLengkapiData() {
-        closeWarning.click();
-    }
-    public String getPasswordErrorTxt() {
-        return passwdErrorNotification.getText();
+
+
+    public void inputFullName (String fullname) {
+        this.fieldFullName.sendKeys(fullname);
     }
     public void choosePrivilege(String priv) {
         Select drpPrivileges = new Select(listPrivileges);
         drpPrivileges.selectByValue(priv);
     }
-    public void resetPrivilege() {
-        listPrivileges.sendKeys(Keys.ARROW_UP,Keys.ENTER);
-    }
     public void chooseSupervisor(String spv) {
         Select drpSupervisor = new Select(listSupervisor);
         drpSupervisor.selectByValue(spv);
+    }
+    public void inputTelephone (String telephone) {
+        this.fieldTelephone.sendKeys(telephone);
+    }
+    public void inputUsername (String username) {
+        this.fieldUsername.sendKeys(username);
+    }
+    public void inputPassword (String password) {
+        this.fieldPassword.sendKeys(password);
+    }
+
+
+    public void addDataAdmin() {
+        btnAddAdmin.click();
+    }
+    public void confirmAddDataAdmin() {
+        btnConfirmSave.click();
+    }
+
+
+    public void clearFullName() {
+        fieldFullName.clear();
+    }
+    public void resetPrivilege() {
+        listPrivileges.sendKeys(Keys.ARROW_UP,Keys.ENTER);
     }
     public void resetSupervisor() {
         Select purgeSPV = new Select(listSupervisor);
         purgeSPV.selectByVisibleText("");
     }
-    public void inputFullName (String fullname) {
-        this.fullName.sendKeys(fullname);
+    public void clearTelephone() {
+        fieldTelephone.clear();
     }
-    public void inputTelephone (String telephone) {
-        this.telephone.sendKeys(telephone);
+    public void clearUsername() {
+        fieldUsername.clear();
     }
-    public void resetTelephone() {
-        telephone.clear();
-    }
-    public void inputUsername (String username) {
-        this.username.sendKeys(username);
-    }
-    public void resetUsername() {
-        username.clear();
-    }
-    public void inputPassword (String password) {
-        this.password.sendKeys(password);
-    }
-    public void resetPassword() {
-        password.clear();
-    }
-    public void saveAdmin() {
-        saveData.click();
-    }
-    public String getWarningLengkapiData() {
-        return dataNotCompleteTxt.getText();
+    public void clearPassword() {
+        fieldPassword.clear();
     }
 
-    public String getFullNameTableTxt() {
-        return confirmTblContent.getText();
-    }
+
 }

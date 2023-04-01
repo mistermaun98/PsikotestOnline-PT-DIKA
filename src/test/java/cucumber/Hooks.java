@@ -4,6 +4,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import projectmagang.drivers.DriverSingleton;
 import projectmagang.utils.Constants;
@@ -24,6 +25,15 @@ public class Hooks {
         TestScenarios[] test = TestScenarios.values();
         extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
         Utils.testCount++;
+    }
+
+    @Before("@CekInputPassword")
+    public void backToAddAdminForm() {
+        delay(1);
+        driver.findElement(By.xpath("//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")).click();
+        delay(1);
+        driver.findElement(By.xpath("//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")).click();
+        delay(2);
     }
 
     @After
