@@ -27,14 +27,6 @@ public class Hooks {
         Utils.testCount++;
     }
 
-    @Before("@CekInputPassword")
-    public void backToAddAdminForm() {
-        delay(1);
-        driver.findElement(By.xpath("//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")).click();
-        delay(1);
-        driver.findElement(By.xpath("//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")).click();
-        delay(2);
-    }
 
     @After
     public void endTestCase(){

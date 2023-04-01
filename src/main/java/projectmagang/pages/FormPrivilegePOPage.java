@@ -14,13 +14,13 @@ public class FormPrivilegePOPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//h3[normalize-space()='User Management']//span")
+    @FindBy(xpath = "//h3[@id='ui-id-7']//span[contains(@class,'ui-accordion-header-icon ui-icon ui-icon-triangle-1-e')]")
     WebElement menuUserManagement;
     @FindBy(xpath = "//h3[normalize-space()='Task']//span")
     WebElement menuTask;
     @FindBy(xpath = "//h3[normalize-space()='Report']//span")
     WebElement menuReport;
-    @FindBy(xpath = "//button[@id='53529_query']")
+    @FindBy(xpath = "//span[normalize-space()='Admin']")
     WebElement btnAdmin;
     @FindBy(xpath = "//span[normalize-space()='Modul']")
     WebElement btnModul;

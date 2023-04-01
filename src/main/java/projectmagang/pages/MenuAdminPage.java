@@ -15,9 +15,9 @@ public class MenuAdminPage {
     }
 
 
-    @FindBy(xpath = "//h3[normalize-space()='User Management']//span")
+    @FindBy(xpath = "//h3[@id='ui-id-7']//span[contains(@class,'ui-accordion-header-icon ui-icon ui-icon-triangle-1-e')]")
     WebElement menuUserManagement;
-    @FindBy(xpath = "//button[@id='53529_query']")
+    @FindBy(xpath = "//span[normalize-space()='Admin']")
     WebElement btnAdmin;
     @FindBy(xpath = "//input[@id='tl_user_management--53685_text']")
     WebElement searchBar;

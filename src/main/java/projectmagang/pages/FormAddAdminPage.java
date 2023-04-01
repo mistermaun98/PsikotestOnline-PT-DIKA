@@ -19,13 +19,17 @@ public class FormAddAdminPage {
     WebElement searchbar;
     @FindBy(xpath = "//span[normalize-space()='Search']")
     WebElement searchBtn;
+    @FindBy(xpath = "//span[normalize-space()='Admin']")
+    WebElement btnMenuAdmin;
 
 
     @FindBy(xpath = "//span[normalize-space()='Add']")
     WebElement btnAddAdmin;
 
 
-    @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")
+//    @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-closethick']")
+//    WebElement closeWarningLengkapiData;
+    @FindBy(xpath = "//span[contains(@class,'ui-button-icon-primary ui-icon ui-icon-closethick')]")
     WebElement closeWarningLengkapiData;
     @FindBy(xpath = "//span[@class='ui-button-icon-primary ui-icon ui-icon-close']")
     WebElement closeAddAdminForm;
@@ -51,8 +55,11 @@ public class FormAddAdminPage {
     WebElement btnConfirmSave;
 
 
+    @FindBy(xpath = "//p[normalize-space()='Mohon Lengkapi Data']")
+    WebElement lengkapiDataTXT;
     @FindBy(xpath = "//p[contains(text(),'Password harus berisi angka dan huruf manimal 8 ka')]")
     WebElement passwordWarningTXT;
+
 
 
     public void manualChooseSearchBar () {
@@ -64,6 +71,8 @@ public class FormAddAdminPage {
     public void searchKeyword() {
         searchBtn.click();
     }
+    public void clickMenuAdmin() {btnMenuAdmin.click();}
+
 
 
     public void inputFullName (String fullname) {
@@ -88,12 +97,17 @@ public class FormAddAdminPage {
     }
 
 
+
     public void addDataAdmin() {
         btnAddAdmin.click();
     }
-    public void confirmAddDataAdmin() {
+    public void saveDataAdmin() {
+        btnSaveData.click();
+    }
+    public void confirmSaveDataAdmin() {
         btnConfirmSave.click();
     }
+
 
 
     public void clearFullName() {
@@ -117,4 +131,21 @@ public class FormAddAdminPage {
     }
 
 
+
+    public void closeLengkapiDataWarning() {
+        closeWarningLengkapiData.click();
+    }
+    public void closeFormAddAdmin() {
+        closeAddAdminForm.click();
+    }
+    public String getLengkapiDataError() {
+        return lengkapiDataTXT.getText();
+    }
+    public String getPasswordWarning() {
+        return passwordWarningTXT.getText();
+    }
+    public boolean verifyPasswordWarningPresent() {
+        boolean isPresent = passwordWarningTXT.isDisplayed();
+        return isPresent;
+    }
 }
